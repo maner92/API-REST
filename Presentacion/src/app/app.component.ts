@@ -18,7 +18,7 @@ export class AppComponent {
     if(this.nick_name === '' || this.full_name === ''){
       alert('All fields are required');
     }else{
-      let body = {"nick_name": this.nick_name,"full_name":this.nick_name}
+      let body = {"nick_name": this.nick_name,"full_name":this.full_name}
       console.log("success");
       
       
