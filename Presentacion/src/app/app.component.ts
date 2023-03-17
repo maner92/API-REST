@@ -21,7 +21,7 @@ export class AppComponent {
       Swal.fire('Error!', 'Please enter all data', 'error');
     }else{
       let body = {"nick_name": this.nick_name,"full_name":this.full_name}
-      Swal.fire('Success!', 'Saved correctly', 'success');
+      Swal.fire('Success!', 'Saved successfully', 'success');
       this.testService.post(body).subscribe()
       this.nick_name = "";
       this.full_name = "";
