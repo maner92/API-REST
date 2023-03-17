@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { TestService } from './Servicio/test.service';
+import {  TestService } from './Servicio/test.service';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -16,18 +18,14 @@ export class AppComponent {
   title = 'Presentacion';
   public onSubmit(){
     if(this.nick_name === '' || this.full_name === ''){
-      alert('All fields are required');
+      Swal.fire('Error!', 'Please enter all data', 'error');
     }else{
       let body = {"nick_name": this.nick_name,"full_name":this.full_name}
-      console.log("success");
-      
-      
-      this.testService.post(body).subscribe(
-        (error)=> {
-          console.log(error);
-          
-        }
-      )
+      Swal.fire('Success!', 'Saved correctly', 'success');
+      this.testService.post(body).subscribe()
+      this.nick_name = "";
+      this.full_name = "";
+
     }
   }
 }
