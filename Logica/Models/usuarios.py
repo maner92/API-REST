@@ -11,7 +11,7 @@ class Base(DeclarativeBase):
     pass
 
 
-engine = connect_to_db('maanu', 'mane1511')
+engine = connect_to_db('root', 'root')
 Base.metadata.create_all(engine)
 session = Session(engine)
 

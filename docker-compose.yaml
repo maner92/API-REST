@@ -1,0 +1,29 @@
+version: '3.17'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    container_name: mysql-test-emmanuel
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test-emmanuel
+    ports:
+      - 3306:3306
+
+  presentacion:
+    image: presentacion:1.0.0
+    container_name: presentacion
+    ports:
+      - 81:80
+  
+  logica: 
+    image: api:1.0.0
+    container_name: logica
+    ports:
+      - 8001:8000
+    links:
+      - db
+    depends_on:
+      - db
